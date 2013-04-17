@@ -2,7 +2,7 @@ clear all
 clc
 
 
-filename = 'testfile5.txt';
+filename = 'testfile53.txt';
 
 %% Load the desired Data
 [DATA, params] = LEDFilteringParser(filename);

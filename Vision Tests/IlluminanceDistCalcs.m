@@ -1,5 +1,5 @@
 clear all; close all; clc;
-setgcadefaults();
+%setgcadefaults();
 
 d2r = pi/180;
 r2d = 180/pi;
@@ -73,3 +73,4 @@ ylim([0 max(luxgrid)]);
 legend([h1 h2 h3],'50 Lumen SuperBright LED','Luxeon Star LEDs','Freaking Laser Beam LED')
 uistack(h3,'top');
 uistack(h1,'top');
+grid on

@@ -64,3 +64,8 @@ DATA.convexity = M(:,5);
 DATA.blobColor = M(:,6);
 DATA.area = M(:,7);
 
+if size(M,2) > 7
+    DATA.imageXpt = M(:,8);
+    DATA.imageYpt = M(:,9);
+end
+
