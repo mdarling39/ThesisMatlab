@@ -69,3 +69,9 @@ if size(M,2) > 7
     DATA.imageYpt = M(:,9);
 end
 
+
+
+%Organize data into cell arrays of structs  {frameNo}{pointNo}.parameter
+
+[DATA] = dataGrouper(DATA);     
+

@@ -17,7 +17,7 @@ LED1.lux = NaN;         % lux
 
 % Luxeon Star LEDs:
 LED2.theta = 120/2*d2r;     % degrees
-LED2.lumens = [50:100:750];
+LED2.lumens = [50:50:750];
 LED2.candelas = NaN;
 LED2.angularSpan = NaN;
 LED2.lux = NaN;
@@ -37,8 +37,8 @@ lumensCalcFun = @(lux,angSpn,dist_ft) lux.*(angSpn.*(dist_ft*f2m).^2);
 
 
 
-distance = linspace(5,65,50);
-luxgrid = linspace(0,5,100);
+distance = linspace(2,65,150);
+luxgrid = linspace(0,2.0,100);
 [distMesh,luxMesh] = meshgrid(distance,luxgrid);
 
 
@@ -64,13 +64,13 @@ figure
 hold all
 h1 = plot(distance,LED1.lux,'b');
 [C,h2] = contour(distMesh,luxMesh,lumensContour',LED2.lumens,'k');
-clabel(C,h2);
+clabel(C,h2,'margin',0.1);
 h3 = plot(distance,LED3.lux,'r');
 title('Illuminance as a function of Distance');
 xlabel('Distance  (ft)');
 ylabel('Illuminance  (lux)');
 ylim([0 max(luxgrid)]);
-legend([h1 h2 h3],'50 Lumen SuperBright LED','Luxeon Star LEDs','Freaking Laser Beam LED')
+legend([h1 h2 h3],'50 Lumen SuperBright LED','Luxeon Star LEDs',sprintf('2000 Lumen LED\nused by Mahboubi et al.'))
 uistack(h3,'top');
 uistack(h1,'top');
 grid on

@@ -1,22 +1,19 @@
 function  [GROUPED_DATA] = dataGrouper(DATA)
 
 j = 0;
-GROUPED_DATA = cell(0,0);
 fldnames = fieldnames(DATA);
 
-for i = 1:length(DATA.blobNo)
+for i = 1:length(DATA.blobNo)  % log file line
     
-    if (DATA.blobNo(i) == 0)
+    if (DATA.blobNo(i) == 0 || isnan(DATA.blobNo(i)))  % new frame
         j = j + 1;
-        for k = 1:length(fldnames)
-            tmpStruct.(fldnames{k}) = [];
-        end
+        i2 = 1;  %image point
     end
+    
     
     for k = 1:length(fldnames)
-        tmpStruct.(fldnames{k})(end+1) = DATA.(fldnames{k})(i);
+        GROUPED_DATA{j}{i2}.(fldnames{k}) = DATA.(fldnames{k})(i);
     end
-    
-    GROUPED_DATA{j} = tmpStruct;
+    i2 = i2 + 1;
     
 end
